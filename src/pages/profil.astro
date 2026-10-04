@@ -1,0 +1,82 @@
+---
+import LayoutUtama from "../layouts/LayoutUtama.astro";
+
+// Placeholder — tim dev: lengkapi dengan data resmi sekolah (sejarah, visi-misi, akreditasi).
+const nilaiUtama = [
+  { judul: "Kompetensi praktik", teks: "[Deskripsi pendekatan pembelajaran praktik sekolah]" },
+  { judul: "Kemitraan industri", teks: "[Deskripsi kerja sama dengan dunia usaha dan industri]" },
+  { judul: "Karakter dan disiplin", teks: "[Deskripsi pembinaan karakter siswa]" }
+];
+---
+<LayoutUtama
+  judul="Profil Sekolah — SMK Negeri 1 Mandau (Replika)"
+  deskripsi="Profil, visi misi, dan nilai-nilai SMK Negeri 1 Mandau."
+  halamanAktif="profil"
+>
+  <section class="bg-gradient-to-br from-malam-deep to-malam text-white py-20">
+    <div class="kontainer-laman max-w-[640px]">
+      <p class="font-rapat text-sm tracking-wide text-ukir-light mb-4">Profil sekolah</p>
+      <h1 class="font-judul text-4xl md:text-5xl leading-tight mb-5">
+        Mengenal lebih dekat SMK Negeri 1 Mandau
+      </h1>
+      <p class="text-gading/85 leading-relaxed text-lg">
+        [Paragraf sejarah singkat berdirinya sekolah — tim dev mohon lengkapi dengan
+        data resmi tahun pendirian, latar belakang, dan perkembangan sekolah.]
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="kontainer-laman grid md:grid-cols-2 gap-12">
+      <div class="kartu">
+        <h2 class="font-judul text-2xl text-malam mb-3">Visi</h2>
+        <p class="text-tinta-pudar leading-relaxed">
+          [Teks visi sekolah — tim dev mohon isi dengan rumusan visi resmi.]
+        </p>
+      </div>
+      <div class="kartu">
+        <h2 class="font-judul text-2xl text-malam mb-3">Misi</h2>
+        <ul class="text-tinta-pudar leading-relaxed space-y-2 list-disc pl-5">
+          <li>[Poin misi 1]</li>
+          <li>[Poin misi 2]</li>
+          <li>[Poin misi 3]</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-gading border-y border-malam/10">
+    <div class="kontainer-laman">
+      <p class="pita-bagian mb-3">Nilai yang kami pegang</p>
+      <h2 class="font-judul text-3xl text-malam mb-10 max-w-[520px]">
+        Prinsip yang membentuk cara kami mendidik
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {nilaiUtama.map((n) => (
+          <div class="kartu">
+            <h3 class="font-judul text-lg text-malam mb-2">{n.judul}</h3>
+            <p class="text-sm text-tinta-pudar leading-relaxed">{n.teks}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="kontainer-laman grid md:grid-cols-2 gap-10">
+      <div class="kartu">
+        <h2 class="font-judul text-xl text-malam mb-3">Akreditasi</h2>
+        <p class="text-tinta-pudar leading-relaxed">
+          [Status akreditasi sekolah dan tahun penetapan — mohon dilengkapi tim dev.]
+        </p>
+      </div>
+      <div class="kartu">
+        <h2 class="font-judul text-xl text-malam mb-3">Alamat dan kontak</h2>
+        <p class="text-tinta-pudar leading-relaxed">
+          [Alamat lengkap sekolah]<br />
+          [Nomor telepon] · [Alamat surel resmi]
+        </p>
+      </div>
+    </div>
+  </section>
+</LayoutUtama>

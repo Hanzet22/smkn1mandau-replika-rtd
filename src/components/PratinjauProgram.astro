@@ -1,0 +1,48 @@
+---
+// Placeholder program keahlian — struktur generik SMK.
+// Tim dev sekolah: ganti nama, deskripsi, dan jumlah dengan data resmi jurusan yang tersedia.
+const programKeahlian = [
+  {
+    nama: "[Nama Program Keahlian 1]",
+    deskripsi: "Deskripsi singkat kompetensi dan peluang kerja lulusan program ini.",
+    warna: "ukir"
+  },
+  {
+    nama: "[Nama Program Keahlian 2]",
+    deskripsi: "Deskripsi singkat kompetensi dan peluang kerja lulusan program ini.",
+    warna: "malam"
+  },
+  {
+    nama: "[Nama Program Keahlian 3]",
+    deskripsi: "Deskripsi singkat kompetensi dan peluang kerja lulusan program ini.",
+    warna: "rimba"
+  }
+];
+---
+<section id="program" aria-labelledby="judul-pratinjau-program" class="py-20">
+  <div class="kontainer-laman">
+    <div class="max-w-[520px] mb-12">
+      <p class="pita-bagian mb-3">Program keahlian</p>
+      <h2 id="judul-pratinjau-program" class="font-judul text-3xl md:text-4xl text-malam mb-4">
+        Jurusan yang dirancang bersama kebutuhan industri
+      </h2>
+      <p class="text-tinta-pudar leading-relaxed">
+        Setiap program menggabungkan teori di kelas dengan praktik langsung di bengkel
+        atau laboratorium, didampingi guru produktif berpengalaman.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {programKeahlian.map((p) => (
+        <article class="kartu border-t-4" style={`border-top-color: var(--${p.warna})`}>
+          <h3 class="font-judul text-xl text-malam mb-2">{p.nama}</h3>
+          <p class="text-sm text-tinta-pudar leading-relaxed">{p.deskripsi}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-10">
+      <a href="/program" class="tombol tombol-garis">Lihat semua program</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,88 @@
+---
+interface Props {
+  halamanAktif?: string;
+}
+const { halamanAktif = "" } = Astro.props;
+
+const taut = [
+  { kunci: "beranda", label: "Beranda", href: "/" },
+  { kunci: "profil", label: "Profil Sekolah", href: "/profil" },
+  { kunci: "program", label: "Program Keahlian", href: "/program" },
+  { kunci: "pengumuman", label: "Pengumuman", href: "/pengumuman" }
+];
+---
+
+<header class="sticky top-0 z-[150] bg-malam border-b border-malam-light/40 shadow-[0_4px_18px_rgba(9,24,58,0.25)]">
+  <div class="batas-ukir h-[5px] w-full" aria-hidden="true" style="--batik-warna-1:#b85c14;--batik-warna-2:#0f2545;--batik-warna-3:#1a4d2e;--batik-skala:14;"></div>
+  <div class="kontainer-laman flex items-center justify-between gap-4 py-4">
+    <a href="/" class="flex items-center gap-3 no-underline group">
+      <span
+        aria-hidden="true"
+        class="w-10 h-10 rounded-full bg-ukir flex items-center justify-center text-kapas font-judul text-lg shrink-0 transition-transform group-hover:scale-105"
+      >1</span>
+      <span class="font-judul text-kapas text-lg tracking-wide leading-tight">
+        SMK Negeri 1 Mandau
+      </span>
+    </a>
+
+    <nav aria-label="Navigasi utama" class="hidden md:flex items-center gap-1">
+      {taut.map((t) => (
+        <a
+          href={t.href}
+          class={`px-4 py-2 rounded-md text-sm font-medium no-underline transition-colors ${
+            halamanAktif === t.kunci
+              ? "bg-ukir/90 text-white"
+              : "text-gading/90 hover:bg-white/8 hover:text-white"
+          }`}
+          aria-current={halamanAktif === t.kunci ? "page" : undefined}
+        >
+          {t.label}
+        </a>
+      ))}
+    </nav>
+
+    <button
+      id="tombol-menu-mobile"
+      class="md:hidden w-10 h-10 flex items-center justify-center rounded-md text-kapas hover:bg-white/10"
+      aria-expanded="false"
+      aria-controls="menu-mobile"
+      aria-label="Buka menu navigasi"
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+
+  <nav
+    id="menu-mobile"
+    aria-label="Navigasi mobile"
+    class="md:hidden hidden flex-col border-t border-white/10 bg-malam-deep"
+  >
+    {taut.map((t) => (
+      <a
+        href={t.href}
+        class={`block px-6 py-3.5 text-sm no-underline border-b border-white/5 ${
+          halamanAktif === t.kunci ? "bg-ukir/90 text-white" : "text-gading/90"
+        }`}
+        aria-current={halamanAktif === t.kunci ? "page" : undefined}
+      >
+        {t.label}
+      </a>
+    ))}
+  </nav>
+</header>
+
+<script is:inline>
+  (function () {
+    const tombol = document.getElementById("tombol-menu-mobile");
+    const menu = document.getElementById("menu-mobile");
+    if (!tombol || !menu) return;
+    tombol.addEventListener("click", () => {
+      const terbuka = menu.classList.toggle("flex");
+      menu.classList.toggle("hidden");
+      tombol.setAttribute("aria-expanded", String(terbuka));
+      tombol.setAttribute("aria-label", terbuka ? "Tutup menu navigasi" : "Buka menu navigasi");
+    });
+  })();
+</script>

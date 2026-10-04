@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================================
+   SMKN 1 Mandau — Replika — Gaya Global
+   Token: amber ukir #b85c14 · navy malam #0f2545 · hijau rimba #1a4d2e
+   Tipografi: Josefin Sans (badan) / Paprika (judul) / Pragati Narrow (rapat)
+   =========================================================== */
+
+@layer base {
+  :root {
+    --ukir: #b85c14;
+    --ukir-terang: #d9843f;
+    --malam: #0f2545;
+    --malam-dalam: #09183a;
+    --rimba: #1a4d2e;
+    --kapas: #fdf8f0;
+    --gading: #f6efe6;
+    --tinta: #1a1a1a;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--kapas);
+    color: var(--tinta);
+    font-family: "Josefin Sans", system-ui, sans-serif;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* Fokus keyboard yang jelas kelihatan — aksesibilitas */
+  :focus-visible {
+    outline: 3px solid var(--ukir);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ===========================================================
+   CSS Houdini — Paint Worklet untuk motif ukiran pembatas
+   Terdaftar lewat registerPaintBatik.js, dipanggil sebagai
+   background: paint(batik-rangkai)
+   =========================================================== */
+@supports (background: paint(batik-rangkai)) {
+  .batas-ukir {
+    background: paint(batik-rangkai);
+  }
+}
+
+/* Jatuh balik untuk peramban tanpa dukungan Houdini — garis gradasi tiga warna */
+.batas-ukir {
+  background: linear-gradient(
+    90deg,
+    var(--ukir) 0%,
+    var(--ukir) 33%,
+    var(--gading) 33%,
+    var(--gading) 66%,
+    var(--rimba) 66%,
+    var(--rimba) 100%
+  );
+}
+
+/* ===========================================================
+   Komponen bersama
+   =========================================================== */
+.kontainer-laman {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.tombol {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 8px;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+}
+
+.tombol:hover {
+  transform: translateY(-2px);
+}
+
+.tombol-ukir {
+  background-color: var(--ukir);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(184, 92, 20, 0.35);
+}
+
+.tombol-ukir:hover {
+  background-color: var(--ukir-terang);
+  box-shadow: 0 6px 20px rgba(184, 92, 20, 0.45);
+}
+
+.tombol-garis {
+  background-color: transparent;
+  color: var(--malam);
+  border-color: var(--malam);
+}
+
+.tombol-garis:hover {
+  background-color: var(--malam);
+  color: #fff;
+}
+
+/* Kartu statistik / program — satu radius konsisten, tanpa bayangan generik seragam */
+.kartu {
+  background: #fff;
+  border: 1px solid rgba(15, 37, 69, 0.08);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+/* Pita judul bagian — dipakai sekali per halaman untuk penanda konteks, bukan dekorasi acak */
+.pita-bagian {
+  font-family: "Pragati Narrow", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: var(--ukir);
+  font-weight: 700;
+}

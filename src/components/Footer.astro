@@ -1,0 +1,50 @@
+---
+const tahun = new Date().getFullYear();
+---
+<footer class="bg-malam-deep text-gading border-t-4 border-ukir">
+  <div class="kontainer-laman py-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <p class="font-judul text-white text-xl mb-3">SMK Negeri 1 Mandau</p>
+      <p class="text-sm text-gading/70 leading-relaxed">
+        Situs replika untuk keperluan pengembangan internal. Bukan laman resmi sekolah.
+      </p>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold text-white mb-3">Navigasi</p>
+      <ul class="space-y-2 text-sm text-gading/70">
+        <li><a href="/" class="hover:text-white no-underline">Beranda</a></li>
+        <li><a href="/profil" class="hover:text-white no-underline">Profil Sekolah</a></li>
+        <li><a href="/program" class="hover:text-white no-underline">Program Keahlian</a></li>
+        <li><a href="/pengumuman" class="hover:text-white no-underline">Pengumuman</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold text-white mb-3">Tautan resmi</p>
+      <p class="text-sm text-gading/70 leading-relaxed">
+        Untuk data dan layanan resmi, kunjungi
+        <a
+          href="https://www.smkn1mandau.sch.id/?m=1"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-ukir-light hover:text-white underline underline-offset-2"
+        >situs asli SMKN 1 Mandau</a>.
+      </p>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold text-white mb-3">Status perangkat</p>
+      <p data-status-perangkat class="text-sm text-gading/70 leading-relaxed">
+        Memeriksa dukungan perangkat…
+      </p>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="kontainer-laman py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gading/50">
+      <span>© {tahun} Replika SMK Negeri 1 Mandau — untuk pengembangan internal</span>
+      <span>Dibangun dengan Astro, React, Tailwind, dan CSS Houdini</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,25 @@
+---
+// Catatan untuk tim dev: angka di bawah adalah placeholder.
+// Ganti dengan data resmi sekolah sebelum dipublikasikan.
+const statistik = [
+  { angka: "[—]", label: "Program keahlian" },
+  { angka: "[—]", label: "Tenaga pengajar" },
+  { angka: "[—]", label: "Siswa aktif" },
+  { angka: "[—]", label: "Mitra industri" }
+];
+---
+<section aria-label="Ringkasan sekolah dalam angka" class="bg-gading border-y border-malam/10">
+  <div class="kontainer-laman py-14">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      {statistik.map((s) => (
+        <div class="text-center">
+          <p class="font-judul text-4xl text-malam mb-1">{s.angka}</p>
+          <p class="text-sm text-tinta-pudar">{s.label}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-xs text-tinta-pudar/70 text-center mt-8">
+      Data di atas adalah placeholder — mohon tim dev sekolah melengkapi dengan angka resmi.
+    </p>
+  </div>
+</section>

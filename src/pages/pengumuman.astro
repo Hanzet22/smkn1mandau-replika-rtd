@@ -1,0 +1,80 @@
+---
+import LayoutUtama from "../layouts/LayoutUtama.astro";
+
+// Placeholder pengumuman — tim dev: hubungkan ke sumber data nyata
+// (CMS, API sekolah, atau file data terpisah) sebelum publikasi.
+const daftarPengumuman = [
+  {
+    tanggal: "[Tanggal]",
+    kategori: "Akademik",
+    judul: "[Judul pengumuman akademik]",
+    ringkasan: "[Ringkasan singkat isi pengumuman, satu hingga dua kalimat.]"
+  },
+  {
+    tanggal: "[Tanggal]",
+    kategori: "Kegiatan",
+    judul: "[Judul pengumuman kegiatan sekolah]",
+    ringkasan: "[Ringkasan singkat isi pengumuman, satu hingga dua kalimat.]"
+  },
+  {
+    tanggal: "[Tanggal]",
+    kategori: "Penerimaan Siswa",
+    judul: "[Judul pengumuman penerimaan siswa baru]",
+    ringkasan: "[Ringkasan singkat isi pengumuman, satu hingga dua kalimat.]"
+  }
+];
+
+const warnaKategori = {
+  Akademik: "ukir",
+  Kegiatan: "rimba",
+  "Penerimaan Siswa": "malam"
+};
+---
+<LayoutUtama
+  judul="Pengumuman — SMK Negeri 1 Mandau (Replika)"
+  deskripsi="Informasi dan pengumuman terbaru dari SMK Negeri 1 Mandau."
+  halamanAktif="pengumuman"
+>
+  <section class="bg-gradient-to-br from-malam-deep to-malam text-white py-20">
+    <div class="kontainer-laman max-w-[640px]">
+      <p class="font-rapat text-sm tracking-wide text-ukir-light mb-4">Pengumuman</p>
+      <h1 class="font-judul text-4xl md:text-5xl leading-tight mb-5">
+        Informasi terbaru dari sekolah
+      </h1>
+      <p class="text-gading/85 leading-relaxed text-lg">
+        Jadwal, kegiatan, dan pembaruan penting disampaikan di sini secara berkala.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="kontainer-laman max-w-[760px]">
+      <ul class="space-y-5">
+        {daftarPengumuman.map((p) => (
+          <li class="kartu !p-6 flex gap-5 items-start">
+            <span
+              class="shrink-0 w-2 self-stretch rounded-full"
+              style={`background-color: var(--${warnaKategori[p.kategori]})`}
+              aria-hidden="true"
+            ></span>
+            <div>
+              <div class="flex items-center gap-3 flex-wrap mb-2">
+                <span class="font-rapat text-xs text-tinta-pudar/70">{p.tanggal}</span>
+                <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-gading text-malam">
+                  {p.kategori}
+                </span>
+              </div>
+              <h2 class="font-judul text-xl text-malam mb-1.5">{p.judul}</h2>
+              <p class="text-sm text-tinta-pudar leading-relaxed">{p.ringkasan}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <p class="text-xs text-tinta-pudar/70 mt-10">
+        Daftar di atas berisi data placeholder. Tim dev sekolah dapat menghubungkan
+        halaman ini ke sumber data pengumuman resmi.
+      </p>
+    </div>
+  </section>
+</LayoutUtama>

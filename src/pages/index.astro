@@ -1,0 +1,31 @@
+---
+import LayoutUtama from "../layouts/LayoutUtama.astro";
+import Hero from "../components/Hero.jsx";
+import StatistikSingkat from "../components/StatistikSingkat.astro";
+import PratinjauProgram from "../components/PratinjauProgram.astro";
+---
+<LayoutUtama
+  judul="SMK Negeri 1 Mandau — Replika"
+  deskripsi="Situs replika SMK Negeri 1 Mandau untuk pengembangan internal. Sekolah menengah kejuruan di Kabupaten Bengkalis, Riau."
+  halamanAktif="beranda"
+>
+  <Hero client:load />
+  <StatistikSingkat />
+  <PratinjauProgram />
+
+  <section aria-labelledby="judul-pengumuman-singkat" class="py-20 bg-malam text-white">
+    <div class="kontainer-laman grid md:grid-cols-[1fr_auto] gap-8 items-center">
+      <div>
+        <p class="pita-bagian mb-3 !text-ukir-light">Tetap terhubung</p>
+        <h2 id="judul-pengumuman-singkat" class="font-judul text-3xl md:text-4xl mb-3">
+          Jangan lewatkan jadwal dan pengumuman sekolah
+        </h2>
+        <p class="text-gading/80 leading-relaxed max-w-[480px]">
+          Informasi penerimaan siswa, jadwal ujian, dan kegiatan sekolah diperbarui
+          secara berkala di halaman pengumuman.
+        </p>
+      </div>
+      <a href="/pengumuman" class="tombol tombol-ukir whitespace-nowrap">Buka pengumuman</a>
+    </div>
+  </section>
+</LayoutUtama>

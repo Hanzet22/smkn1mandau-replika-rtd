@@ -1,0 +1,28 @@
+---
+import LayoutUtama from "../layouts/LayoutUtama.astro";
+import DaftarProgram from "../components/DaftarProgram.jsx";
+---
+<LayoutUtama
+  judul="Program Keahlian — SMK Negeri 1 Mandau (Replika)"
+  deskripsi="Daftar program keahlian yang tersedia di SMK Negeri 1 Mandau."
+  halamanAktif="program"
+>
+  <section class="bg-gradient-to-br from-malam-deep to-rimba-dark text-white py-20">
+    <div class="kontainer-laman max-w-[640px]">
+      <p class="font-rapat text-sm tracking-wide text-ukir-light mb-4">Program keahlian</p>
+      <h1 class="font-judul text-4xl md:text-5xl leading-tight mb-5">
+        Pilih jalur keahlian sesuai minat Anda
+      </h1>
+      <p class="text-gading/85 leading-relaxed text-lg">
+        Setiap program dirancang dengan kurikulum berbasis kompetensi dan jam praktik
+        yang memadai di bengkel maupun laboratorium sekolah.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="kontainer-laman">
+      <DaftarProgram client:load />
+    </div>
+  </section>
+</LayoutUtama>
